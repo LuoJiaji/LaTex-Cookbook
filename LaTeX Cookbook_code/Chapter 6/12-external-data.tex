@@ -1,0 +1,18 @@
+% Stefan Kottwitz, LaTeX Cookbook, Packt Publishing, 2015
+% Chapter 5, Designing Tables
+% Reading in data from files 
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{datatool}
+\DTLloaddb{Linux}{linux.csv}
+\DTLsort[Distribution]{Hits=descending}{Linux}
+\pagestyle{empty}
+\begin{document}
+\begin{tabular}{rlr}
+  & Distribution & Hits \\
+  \cmidrule(lr){2-2}\cmidrule(lr){3-3}
+  \DTLforeach{Linux}{%
+  \distribution=Distribution,\hits=Hits}{%
+    \theDTLrowi & \distribution & \hits \\}
+\end{tabular}
+\end{document}

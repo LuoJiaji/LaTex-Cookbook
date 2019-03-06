@@ -1,0 +1,49 @@
+% Stefan Kottwitz, LaTeX Cookbook, Packt Publishing, 2015
+% Chapter 5, Designing Tables
+% Adding shape, shading, and transparency
+% Styling with TikZ matrix
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\setbeamertemplate{background canvas}[vertical shading]%
+  [top=blue!1,bottom=blue!40]
+\setbeamertemplate{navigation symbols}{}
+\newcommand{\up}{\textcolor{green!75!black}{$\blacktriangle$}}
+\newcommand{\down}{\textcolor{red}{$\blacktriangledown$}}
+\newcommand{\same}{\textcolor{darkgray}{\textbf{--}}}
+\newcounter{rank}
+\setcounter{rank}{0}
+\newcommand{\steprank}{\stepcounter{rank}\therank}
+\newenvironment{matrixtable}[4]{%
+  \begin{tikzpicture}
+  \matrix (m) [matrix of nodes, nodes in empty cells,
+    nodes={draw, top color=blue!10, bottom color=blue!35,
+      inner sep=2pt, minimum height=3.5ex, anchor=center},
+    top color=blue!20, bottom color=blue!80, draw=white,
+    column sep=1ex, row sep=0.6ex, inner sep=2ex,
+    rounded corners,
+    row 1/.style    = {font=\bfseries},
+    column 1/.style = {minimum width=#1, font=\steprank},
+    column 2/.style = {minimum width=#2},
+    column 3/.style = {minimum width=#3},
+    column 4/.style = {minimum width=#4}]}%
+  {;\end{tikzpicture}}
+\begin{document}
+\begin{frame}[fragile]
+  \begin{center}
+    \begin{matrixtable}{1.2cm}{2.4cm}{1.2cm}{0.6cm}{
+      Rank & Distribution & Hits & ?      \\
+           & Mint         & 2364 & \down  \\
+           & Ubuntu       & 1838 & \up    \\
+           & Debian       & 1582 & \same  \\
+           & openSUSE     & 1334 & \up    \\
+           & Fedora       & 1262 & \up    \\
+           & Mageia       & 1219 & \down  \\
+           & CentOS       & 1171 & \same  \\
+           & Arch         & 1040 & \same  \\
+           & elementary   &  899 & \same  \\
+           & Zorin        &  851 & \down  \\}
+    \end{matrixtable}
+  \end{center}
+\end{frame}
+\end{document}

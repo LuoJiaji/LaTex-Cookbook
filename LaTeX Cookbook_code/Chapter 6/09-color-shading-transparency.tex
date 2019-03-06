@@ -1,0 +1,57 @@
+% Stefan Kottwitz, LaTeX Cookbook, Packt Publishing, 2015
+% Chapter 5, Designing Tables
+% Adding shape, shading, and transparency
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+\rowcolors{2}{gray!25}{white}
+\newcommand{\up}{\textcolor{green}{$\blacktriangle$}}
+\newcommand{\down}{\textcolor{red}{$\blacktriangledown$}}
+\newcommand{\same}{\textcolor{darkgray}{\textbf{--}}}
+\newcommand{\heading}[1]{{\Large\bfseries #1\par\medskip}}
+\arrayrulecolor{blue}
+\begin{document}
+\begin{frame}
+  \centering
+  \heading{Linux distribution ranking, December 14, 2014}
+  \begin{tikzpicture}
+    \node (table) {
+      \begin{tabular}{rlrcc}
+        & \textbf{Distribution} & \textbf{Hits} & \\
+        \addlinespace[2pt]
+        1 &  Mint &  2364 & \down \\
+        \midrule
+        2 & Ubuntu  & 1838 & \up \\
+        \midrule
+        3 & Debian & 1582 & \same \\
+        \midrule
+        4 & openSUSE & 1334 & \up \\
+        \midrule
+        5 &  Fedora& 1262 & \up \\
+        \midrule
+        6 & Mageia & 1219 & \down \\
+        \midrule
+        7 & CentOS & 1171 & \same \\
+        \midrule
+        8 & Arch & 1040 & \same \\
+        \midrule
+        9 & elementary & 899 & \same \\
+        \midrule
+        10 & Zorin & 851 & \down \\[0.5ex]
+      \end{tabular}};
+    \begin{pgfonlayer}{background}
+      \draw[rounded corners, top color=blue!20,
+        bottom color=blue!80!black, middle color=blue!80,
+        opacity=0.5, draw=white] ($(table.north west)+(0.14,0)$)
+        rectangle ($(table.north east)-(0.13,0.9)$);
+      \draw[top color=blue!1,bottom color=blue!30,draw=white]
+        ($(table.north east)-(0.13,0.6)$)
+        rectangle ($(table.south west)+(0.13,0.2)$);
+    \end{pgfonlayer}
+  \end{tikzpicture}
+
+  \small
+  Data by DistroWatch.com, spanning over the last 6 months,
+  hits per day.
+\end{frame}
+\end{document}

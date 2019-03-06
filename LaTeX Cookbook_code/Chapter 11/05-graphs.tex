@@ -1,0 +1,11 @@
+\documentclass{article}
+\usepackage{tkz-graph}
+\thispagestyle{empty}
+\begin{document}
+\begin{tikzpicture}[rotate=18]
+  \SetGraphUnit{5}
+  \GraphInit[vstyle=Normal]
+  \Vertices{circle}{A,B,C,D,E}
+  \Edges(A,B,C,D,E,A,D,B,E,C,A)
+\end{tikzpicture}
+\end{document}

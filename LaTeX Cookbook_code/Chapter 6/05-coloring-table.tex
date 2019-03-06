@@ -1,0 +1,30 @@
+% Stefan Kottwitz, LaTeX Cookbook, Packt Publishing, 2015
+% Chapter 5, Designing Tables
+% Coloring a table
+\documentclass{article}
+\usepackage[table]{xcolor}
+\rowcolors{2}{gray!15}{white}
+\newcommand{\head}[1]{%
+  \textcolor{white}{\textbf{#1}}}
+\renewcommand{\arraystretch}{1.5}
+\begin{document}
+\begin{table}[ht]
+  \centering
+  \sffamily
+  \begin{tabular}{rlr}
+    \rowcolor{black!75}
+     & \head{Distribution} & \head{Hits} \\
+    1 & Mint       & 2364 \\
+    2 & Ubuntu     & 1838 \\
+    3 & Debian     & 1582 \\
+    4 & openSUSE   & 1334 \\
+    5 & Fedora     & 1262 \\
+    6 & Mageia     & 1219 \\
+    7 & CentOS     & 1171 \\
+    8 & Arch       & 1040 \\
+    9 & elementary &  899 \\
+   10 & Zorin      &  851 \\
+ \end{tabular}
+\end{table}
+\end{document}
+

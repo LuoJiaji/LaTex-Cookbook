@@ -1,0 +1,10 @@
+\documentclass{scrbook}
+\usepackage[pdftex,outline]{contour}
+%\contourlength{1.5pt}% Thickness of copies
+%\contournumber{25}% How many copies
+\newcommand{\chapterfont}[1]{\contour{black}{\textcolor{yellow}{#1}}}
+\setkomafont{chapter}{\Huge\chapterfont}
+\begin{document}
+\chapter{Introduction}
+Text follows.
+\end{document}

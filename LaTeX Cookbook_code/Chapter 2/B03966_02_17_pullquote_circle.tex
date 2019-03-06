@@ -1,0 +1,20 @@
+% LaTeX Cookbook, Packt Publishing, 2015
+% Stefan Kottwitz
+\documentclass{article}
+\usepackage{lipsum}
+\usepackage{pullquote}
+% http://bazaar.launchpad.net/~tex-sx/tex-sx/development/view/head:/pullquote.dtx
+\usepackage{tikz}
+\newcommand{\mylogo}{%
+  \begin{tikzpicture} 
+    \node[shape=circle,draw=gray!40,line width=3pt,
+      fill={gray!15},font=\Huge] {\TeX};
+  \end{tikzpicture}%
+}
+\begin{document}
+\begin{pullquote}{shape=circular,object=\mylogo}
+  \lipsum[1]
+\end{pullquote}
+\end{document}
+
+
